@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">TRLai DPS924 Assignment 2 Cash Register App</string>
+    <string name="app_name">Assignment 2 - Cash Register App</string>
+    <string name="product_type">Product Type</string>
+    <string name="manager_btn">Manager</string>
+    <string name="total">Total</string>
+    <string name="selected_quantity">Quantity</string>
+    <string name="buy_btn">Buy</string>
+    <string name="price">Price</string>
 </resources>
