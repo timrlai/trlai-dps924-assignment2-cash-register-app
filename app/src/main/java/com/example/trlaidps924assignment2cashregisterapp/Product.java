@@ -36,6 +36,10 @@ public class Product {
         this.quantity = quantity;
     }
 
+    public void decreaseQuantity(int amount) {
+        this.quantity = this.quantity - amount;
+    }
+
     public double getPrice() {
         return price.doubleValue();
     }
@@ -44,5 +48,9 @@ public class Product {
         BigDecimal price = new BigDecimal(Double.toString(value));
         price = price.setScale(2, RoundingMode.HALF_UP);
         this.price = price;
+    }
+
+    public BigDecimal getTotal() {
+        return BigDecimal.valueOf(getQuantity() * getPrice());
     }
 }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class ProductBaseAdaptor extends BaseAdapter {
+public class ProductBaseAdaptor extends BaseAdapter implements View.OnClickListener {
     ArrayList<Product> productList;
     Context context;
 
@@ -49,5 +49,10 @@ public class ProductBaseAdaptor extends BaseAdapter {
         price.setText(String.format(Locale.CANADA, "$%.2f", productList.get(i).getPrice()));
 
         return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
