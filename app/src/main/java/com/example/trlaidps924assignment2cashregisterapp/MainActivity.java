@@ -3,6 +3,7 @@ package com.example.trlaidps924assignment2cashregisterapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener, NumberPicker.OnValueChangeListener {
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Product mainProduct;
     ProductManager productManager;
     ProductBaseAdaptor productListAdapter;
+
+    HistoryManager historyManager;
 
     int selectedQuantityAmount = -1;
     int quantityInStock = -1;
@@ -49,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         productManager = ((MyApp)getApplication()).productManager;
         productListAdapter = new ProductBaseAdaptor(productManager.allProducts,this);
 
+        historyManager = ((MyApp)getApplication()).historyManager;
+
         managerBtn.setOnClickListener(this);
         buyBtn.setOnClickListener(this);
 
@@ -65,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
 
         if (id == R.id.manager_btn) {
-
+            Intent managerActivityIntent = new Intent(this,ManagerActivity.class);
+            startActivity(managerActivityIntent);
         } else if (id == R.id.buy_btn) {
             if (mainProduct == null || selectedQuantityAmount == -1) {
                 emptyFieldError();
@@ -77,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             alertBuilder.setTitle(R.string.buy_alert_title).setMessage(buyAlertMessage);
                             AlertDialog buyAlert = alertBuilder.create();
                             buyAlert.show();
+
+                            String purchaseDate = String.valueOf(new Date().getTime());
+                            ProductHistory productHistory = new ProductHistory(mainProduct.getName(), mainProduct.getQuantity(), mainProduct.getTotal(), purchaseDate);
+                            historyManager.addProductHistory(productHistory);
 
                             productManager.allProducts.get(i).decreaseQuantity(selectedQuantityAmount);
                             quantityInStock = productManager.allProducts.get(i).getQuantity();

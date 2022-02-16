@@ -7,4 +7,9 @@
     <string name="buy_btn">Buy</string>
     <string name="price">Price</string>
     <string name="buy_alert_title">Thank you for your purchase!</string>
+    <string name="history_btn">History</string>
+    <string name="restock_btn">Restock</string>
+    <string name="detail_product">Product:</string>
+    <string name="detail_price">Price:</string>
+    <string name="detail_date">Purchase Date:</string>
 </resources>

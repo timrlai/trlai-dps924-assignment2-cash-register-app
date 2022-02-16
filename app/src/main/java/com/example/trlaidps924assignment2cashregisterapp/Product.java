@@ -48,9 +48,9 @@ public class Product {
     }
 
     public void setPrice(double value) {
-        BigDecimal price = new BigDecimal(Double.toString(value));
-        price = price.setScale(2, RoundingMode.HALF_UP);
-        this.price = price;
+        BigDecimal bd = new BigDecimal(Double.toString(value));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        this.price = bd;
     }
 
     public double getTotal() {

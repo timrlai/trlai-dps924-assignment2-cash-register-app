@@ -10,6 +10,7 @@ public class MyApp extends Application {
             new Product("Shoes", 100, 10.44),
             new Product("Hat", 30, 5.90)
     };
+    HistoryManager historyManager = new HistoryManager();
 
     @Override
     public void onCreate() {
