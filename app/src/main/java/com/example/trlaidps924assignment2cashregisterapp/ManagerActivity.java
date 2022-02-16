@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class ManagerActivity extends AppCompatActivity implements View.OnClickListener {
-    Button historyBtn, restockBtn;
+    Button historyBtn, restockBtn, cancelBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,9 +17,11 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
 
         historyBtn = findViewById(R.id.history_btn);
         restockBtn = findViewById(R.id.restock_btn);
+        cancelBtn = findViewById(R.id.manager_cancel_btn);
 
         historyBtn.setOnClickListener(this);
         restockBtn.setOnClickListener(this);
+        cancelBtn.setOnClickListener(this);
     }
 
     @Override
@@ -32,6 +34,9 @@ public class ManagerActivity extends AppCompatActivity implements View.OnClickLi
         } else if (id == R.id.restock_btn) {
             Intent restockActivityIntent = new Intent(this,RestockActivity.class);
             startActivity(restockActivityIntent);
+        } else if (id == R.id.manager_cancel_btn) {
+            Intent mainActivityIntent = new Intent(this,MainActivity.class);
+            startActivity(mainActivityIntent);
         }
     }
 }

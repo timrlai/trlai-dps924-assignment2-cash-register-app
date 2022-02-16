@@ -74,13 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent managerActivityIntent = new Intent(this,ManagerActivity.class);
             startActivity(managerActivityIntent);
         } else if (id == R.id.buy_btn) {
-            if (mainProduct == null || selectedQuantityAmount == -1) {
+            if (mainProduct == null || mainProduct.equals(new Product()) || selectedQuantityAmount == -1) {
                 emptyFieldError();
             } else {
                 if (quantityInStock >= selectedQuantityAmount) {
                     for (int i = 0; i < productManager.allProducts.size(); i++) {
                         if (mainProduct.getName().equals(productManager.allProducts.get(i).getName())) {
-                            String buyAlertMessage = "You purchased " + mainProduct.getQuantity() + " " + mainProduct.getName() + " for " + String.format(Locale.CANADA, "$%.2f", mainProduct.getPrice());
+                            String buyAlertMessage = getString(R.string.buy_alert_message, mainProduct.getQuantity(), mainProduct.getName(), mainProduct.getPrice());
                             alertBuilder.setTitle(R.string.buy_alert_title).setMessage(buyAlertMessage);
                             AlertDialog buyAlert = alertBuilder.create();
                             buyAlert.show();
@@ -159,13 +159,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (quantityInStock > 0) {
             setSelectedQuantity(quantityInStock);
             quantityPicker.setValue(selectedQuantityAmount);
-            Toast.makeText(this, "Only " + quantityInStock + " " + mainProduct.getName() + " in stock!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.low_quantity_error, quantityInStock, mainProduct.getName()),Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(this, "There are no " + mainProduct.getName() + " in stock!",Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.no_quantity_error, mainProduct.getName()),Toast.LENGTH_LONG).show();
         }
     }
 
     public void emptyFieldError() {
-        Toast.makeText(this, "All fields are required!!!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, getString(R.string.empty_field_error),Toast.LENGTH_LONG).show();
     }
 }

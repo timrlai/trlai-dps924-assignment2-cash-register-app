@@ -7,9 +7,20 @@
     <string name="buy_btn">Buy</string>
     <string name="price">Price</string>
     <string name="buy_alert_title">Thank you for your purchase!</string>
+    <string name="buy_alert_message">You purchased %1$d %2$s for $%3$.2f.</string>
     <string name="history_btn">History</string>
     <string name="restock_btn">Restock</string>
-    <string name="detail_product">Product:</string>
-    <string name="detail_price">Price:</string>
-    <string name="detail_date">Purchase Date:</string>
+    <string name="detail_product">Product: %1$s</string>
+    <string name="detail_price">Price: %1$s</string>
+    <string name="detail_date">Purchase Date: %1$s</string>
+    <string name="restock_product">Restock Product: %1$s</string>
+    <string name="new_quantity">Add New Quantity</string>
+    <string name="ok_btn">OK</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="restock_alert_title">Product %1$s has been restocked!</string>
+    <string name="restock_alert_message">You restocked %1$d %2$s for a total stock of %3$d.</string>
+    <string name="empty_field_error">All fields are required!!!</string>
+    <string name="low_quantity_error">Only %1$d %2$s in stock!</string>
+    <string name="no_quantity_error">There are no %1$s in stock!</string>
+    <string name="not_integer_error">Value must be an integer!!!</string>
 </resources>

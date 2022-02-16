@@ -43,6 +43,12 @@ public class Product {
         }
     }
 
+    public void increaseQuantity(int amount) {
+        if (amount > 0) {
+            this.quantity = this.quantity + amount;
+        }
+    }
+
     public double getPrice() {
         return price.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
