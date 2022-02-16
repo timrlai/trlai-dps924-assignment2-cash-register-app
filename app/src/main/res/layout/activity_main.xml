@@ -21,26 +21,25 @@
         android:id="@+id/manager_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:text="@string/manager_btn"
         android:textSize="14sp"
         android:textColor="@color/white"
         android:background="@drawable/btn_bg"
         app:layout_constraintBottom_toTopOf="@+id/guideline_top"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
         app:layout_constraintLeft_toRightOf="@id/product_type"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <NumberPicker
         android:id="@+id/quantity_picker"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline_middle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/total_amount"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/guideline_top" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/total_amount"
@@ -56,10 +55,11 @@
 
     <TextView
         android:id="@+id/selected_quantity"
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:text="@string/selected_quantity"
         android:textSize="18sp"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/buy_btn"
@@ -70,7 +70,7 @@
         android:id="@+id/buy_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="30dp"
+        android:padding="10dp"
         android:text="@string/buy_btn"
         android:textSize="14sp"
         android:textColor="@color/white"
@@ -111,20 +111,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.18" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_middle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.45" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

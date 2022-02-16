@@ -15,7 +15,7 @@ public class Product {
     }
 
     public Product() {
-        this.setName("Product Type");
+        this.setName("Select a product");
         this.setQuantity(0);
         this.setPrice(0);
     }
