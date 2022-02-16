@@ -37,7 +37,10 @@ public class Product {
     }
 
     public void decreaseQuantity(int amount) {
-        this.quantity = this.quantity - amount;
+        int reducedQuantity = this.quantity - amount;
+        if (reducedQuantity >= 0) {
+            this.quantity = reducedQuantity;
+        }
     }
 
     public double getPrice() {
