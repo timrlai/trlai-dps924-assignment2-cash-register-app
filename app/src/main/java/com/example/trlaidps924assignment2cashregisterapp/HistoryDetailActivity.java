@@ -26,8 +26,8 @@ public class HistoryDetailActivity extends AppCompatActivity {
         totalPrice = getIntent().getExtras().getDouble("totalPrice");
         purchasedDate = getIntent().getExtras().getString("purchasedDate");
 
-        productTypeText.setText(productType);
-        totalPriceText.setText(String.format(Locale.CANADA, "$%.2f", totalPrice));
-        purchasedDateText.setText(purchasedDate);
+        productTypeText.append(" " + productType);
+        totalPriceText.append(String.format(Locale.CANADA, " $%.2f", totalPrice));
+        purchasedDateText.append(" " + purchasedDate);
     }
 }

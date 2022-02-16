@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             AlertDialog buyAlert = alertBuilder.create();
                             buyAlert.show();
 
-                            String purchaseDate = String.valueOf(new Date().getTime());
+                            String purchaseDate = String.valueOf(new Date());
                             ProductHistory productHistory = new ProductHistory(mainProduct.getName(), mainProduct.getQuantity(), mainProduct.getTotal(), purchaseDate);
                             historyManager.addProductHistory(productHistory);
 
