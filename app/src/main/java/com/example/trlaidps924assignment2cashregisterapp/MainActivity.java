@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (selectedQuantityAmount < 1) {
                 setSelectedQuantity(1);
+                quantityPicker.setValue(selectedQuantityAmount);
             }
 
             if (selectedQuantityAmount > quantityInStock) {
@@ -107,11 +108,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = numberPicker.getId();
 
         if (id == R.id.quantity_picker) {
-            if (mainProduct != null && selectedQuantityAmount != -1) {
-                if (numberPicker.getValue() <= quantityInStock) {
-                    selectedQuantityAmount = numberPicker.getValue();
+            setSelectedQuantity(numberPicker.getValue());
+
+            if (mainProduct != null && !mainProduct.getName().equals("Select a product") && selectedQuantityAmount != -1) {
+                if (selectedQuantityAmount <= quantityInStock) {
                     mainProduct.setQuantity(selectedQuantityAmount);
-                    selectedQuantityText.setText(String.format(Locale.CANADA, "%d", selectedQuantityAmount));
                     totalAmountText.setText(String.format(Locale.CANADA, "$%.2f", mainProduct.getTotal()));
                 } else {
                     quantityError();
@@ -124,7 +125,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void setSelectedQuantity(int quantity) {
         selectedQuantityAmount = quantity;
-        quantityPicker.setValue(selectedQuantityAmount);
         selectedQuantityText.setText(String.format(Locale.CANADA, "%d", selectedQuantityAmount));
     }
 
@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void quantityError() {
         if (quantityInStock > 0) {
             setSelectedQuantity(quantityInStock);
+            quantityPicker.setValue(selectedQuantityAmount);
             Toast.makeText(this, "Only " + quantityInStock + " " + mainProduct.getName() + " in stock!",Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "There are no " + mainProduct.getName() + " in stock!",Toast.LENGTH_LONG).show();
