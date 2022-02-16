@@ -44,7 +44,7 @@ public class Product {
     }
 
     public double getPrice() {
-        return price.doubleValue();
+        return price.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     public void setPrice(double value) {
@@ -53,7 +53,7 @@ public class Product {
         this.price = price;
     }
 
-    public BigDecimal getTotal() {
-        return BigDecimal.valueOf(getQuantity() * getPrice());
+    public double getTotal() {
+        return BigDecimal.valueOf(getQuantity() * getPrice()).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

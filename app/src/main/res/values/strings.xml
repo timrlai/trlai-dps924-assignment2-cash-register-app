@@ -6,4 +6,5 @@
     <string name="selected_quantity">Quantity</string>
     <string name="buy_btn">Buy</string>
     <string name="price">Price</string>
+    <string name="buy_alert_title">Thank you for your purchase!</string>
 </resources>

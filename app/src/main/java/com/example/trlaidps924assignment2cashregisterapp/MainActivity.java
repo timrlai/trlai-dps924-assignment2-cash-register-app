@@ -1,5 +1,6 @@
 package com.example.trlaidps924assignment2cashregisterapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     NumberPicker quantityPicker;
     ListView productList;
 
+    AlertDialog.Builder alertBuilder;
+
     Product mainProduct;
     ProductManager productManager;
     ProductBaseAdaptor productListAdapter;
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buyBtn = findViewById(R.id.buy_btn);
         quantityPicker = findViewById(R.id.quantity_picker);
         productList = findViewById(R.id.product_list);
+
+        alertBuilder = new AlertDialog.Builder(this);
 
         mainProduct = ((MyApp)getApplication()).mainProduct;
         productManager = ((MyApp)getApplication()).productManager;
@@ -68,6 +73,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (quantityInStock >= selectedQuantityAmount) {
                     for (int i = 0; i < productManager.allProducts.size(); i++) {
                         if (mainProduct.getName().equals(productManager.allProducts.get(i).getName())) {
+                            String buyAlertMessage = "You purchased " + mainProduct.getQuantity() + " " + mainProduct.getName() + " for " + String.format(Locale.CANADA, "$%.2f", mainProduct.getPrice());
+                            alertBuilder.setTitle(R.string.buy_alert_title).setMessage(buyAlertMessage);
+                            AlertDialog buyAlert = alertBuilder.create();
+                            buyAlert.show();
+
                             productManager.allProducts.get(i).decreaseQuantity(selectedQuantityAmount);
                             quantityInStock = productManager.allProducts.get(i).getQuantity();
                             productListAdapter = new ProductBaseAdaptor(productManager.allProducts,this);
