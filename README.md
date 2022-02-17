@@ -3,6 +3,8 @@
 ## Student Email Address: trlai@myseneca.ca
 ## Student Number: 056 106 123
 
+You can watch my demo video of this app on YouTube, [here](https://www.youtube.com/watch?v=RtBk7REKiyc).
+
 ## Models
 ```java
 package com.example.trlaidps924assignment2cashregisterapp;
