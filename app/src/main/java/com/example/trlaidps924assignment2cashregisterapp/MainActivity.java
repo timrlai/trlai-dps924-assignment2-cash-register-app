@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (quantityInStock >= selectedQuantityAmount) {
                     for (int i = 0; i < productManager.allProducts.size(); i++) {
                         if (mainProduct.getName().equals(productManager.allProducts.get(i).getName())) {
-                            String buyAlertMessage = getString(R.string.buy_alert_message, mainProduct.getQuantity(), mainProduct.getName(), mainProduct.getPrice());
+                            String buyAlertMessage = getString(R.string.buy_alert_message, mainProduct.getQuantity(), mainProduct.getName(), mainProduct.getTotal());
                             alertBuilder.setTitle(R.string.buy_alert_title).setMessage(buyAlertMessage);
                             AlertDialog buyAlert = alertBuilder.create();
                             buyAlert.show();
